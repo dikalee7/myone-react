@@ -1,12 +1,15 @@
-import './App.css';
 
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/MyoneLayout';
+import Main from './domains/main/views/Main'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>이제 시작</h2>
-      </header>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path='/' element={<Main />} />
+        <Route path='/main' element={<Main />} />
+      </Route>
+    </Routes>
   );
 }
 
