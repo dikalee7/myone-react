@@ -61,7 +61,7 @@ const ConfirmView = () => {
         <Modal.Header style={{ backgroundColor: 'darkslategray' }} closeButton>
           <Modal.Title style={{ color: 'white' }}>{modal.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ backgroundColor: 'white' }}>
+        <Modal.Body style={{ backgroundColor: 'white', minHeight: '100px' }}>
           {modal.message}
         </Modal.Body>
         <Modal.Footer style={{ backgroundColor: 'white' }}>
