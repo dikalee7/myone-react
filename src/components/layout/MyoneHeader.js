@@ -20,7 +20,7 @@ const MyoneHeader = () => {
 
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='primary' variant='dark' expand='lg'>
         <Container>
           <Navbar.Brand>
             <Icon path={mdiWallet} size={1} />
