@@ -1,4 +1,4 @@
-export function emitter(config) {
+export default function emitter(config) {
   const bus = {};
 
   const on = (key, handler) => {
@@ -14,8 +14,10 @@ export function emitter(config) {
   };
 
   const off = (key, handler) => {
-    const index = bus[key].indexOf(handler) ?? -1;
-    bus[key]?.splice(index >>> 0, 1);
+    if(bus[key]){
+      const index = bus[key].indexOf(handler) ?? -1;
+      bus[key]?.splice(index >>> 0, 1);
+    }
   };
 
   const emit = (key, payload) => {
