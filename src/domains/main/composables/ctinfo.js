@@ -11,16 +11,19 @@ const ctinfo = () => {
         name: '가이드',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'info',
       },
       {
         name: '공통',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'info',
       },
       {
         name: '코딩샘플',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'info',
       },
     ],
   };
@@ -37,11 +40,13 @@ const ctinfo = () => {
         name: '공공서비스',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'success',
       },
       {
         name: '혜택',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'success',
       },
     ],
   };
@@ -57,6 +62,7 @@ const ctinfo = () => {
         name: '이동',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'warning',
       },
     ],
   };
@@ -72,6 +78,7 @@ const ctinfo = () => {
         name: '이동',
         emnm: 'goPage',
         empr: { name: 'main', params: {} },
+        bg: 'secondary',
       },
     ],
   };

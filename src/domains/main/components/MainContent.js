@@ -12,8 +12,8 @@ const MainContent = ({ ctInfo, fnGoPage }) => {
         {ctInfo.actions.map((act, idx) => (
           <Button
             key={idx}
-            variant='warning'
             size='sm'
+            variant={act.bg}
             style={{ marginRight: '10px' }}
             onClick={fnGoPage.bind(this, act.empr)}
           >
