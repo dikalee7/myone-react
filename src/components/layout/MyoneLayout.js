@@ -6,13 +6,13 @@ import { Outlet } from 'react-router-dom';
 
 const MyoneLayout = ({children}) => {
   return (
-    <>
+    <React.Fragment>
       <Header />
       <Container style={{ minHeight: '80vh' }}>
         <Outlet />
       </Container>
       <Footer />
-    </>
+    </React.Fragment>
   );
 }
 

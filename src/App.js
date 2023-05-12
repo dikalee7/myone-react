@@ -1,16 +1,22 @@
 
-import { Routes, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import Layout from './components/layout/MyoneLayout';
-import Main from './domains/main/views/Main'
-function App() {
-  return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path='/' element={<Main />} />
-        <Route path='/main' element={<Main />} />
-      </Route>
-    </Routes>
-  );
+import MainRouter from './router/MainRouter';
+function App() { 
+  console.log(MainRouter().router);
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: [
+        ...MainRouter().router,
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

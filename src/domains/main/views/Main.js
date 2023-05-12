@@ -8,11 +8,11 @@ const Main = () => {
   console.log(ctInfo.length);
 
   return (
-    <>
+    <React.Fragment>
       {ctInfo.map((info, idx) => (
         <MainContent key={idx} ctInfo={info} />
       ))}
-    </>
+    </React.Fragment>
   );
 }
 
