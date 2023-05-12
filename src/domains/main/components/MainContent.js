@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 
 const MainContent = ({ ctInfo, fnGoPage }) => {
   return (
-    <Card style={{ marginTop: '15px' }}>
+    <Card bg='dark' style={{ marginTop: '15px' }}>
       {ctInfo.title ? <Card.Header>{ctInfo.title}</Card.Header> : ''}
 
       <Card.Body>
@@ -12,7 +12,7 @@ const MainContent = ({ ctInfo, fnGoPage }) => {
         {ctInfo.actions.map((act, idx) => (
           <Button
             key={idx}
-            variant='outline-primary'
+            variant='warning'
             size='sm'
             style={{ marginRight: '10px' }}
             onClick={fnGoPage.bind(this, act.empr)}
