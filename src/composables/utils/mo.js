@@ -14,7 +14,6 @@ export default function mo(emitter) {
   };
 
   const alert = (o) => {
-
     o.options = o.options ?? {};
     o.options = Object.assign(o.options, { noconfirm: true });
     emitter.emit('showAlert', o);

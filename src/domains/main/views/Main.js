@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import MainContent from '../components/MainContent';
-import useCtinfo from '../composables/ctinfo'
+import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
-
 
 const Main = () => {
   const { $mo } = useContext(AppContext);
@@ -17,8 +16,8 @@ const Main = () => {
     } else {
       // this.$router.push({ name: p.name, params: p.params });
     }
-  }
-  
+  };
+
   return (
     <React.Fragment>
       {ctInfo.map((info, idx) => (
@@ -26,6 +25,6 @@ const Main = () => {
       ))}
     </React.Fragment>
   );
-}
+};
 
-export default Main
+export default Main;

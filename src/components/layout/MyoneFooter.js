@@ -1,5 +1,5 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const MyoneFooter = () => {
   return (
@@ -9,6 +9,6 @@ const MyoneFooter = () => {
       </Container>
     </footer>
   );
-}
+};
 
-export default MyoneFooter
+export default MyoneFooter;

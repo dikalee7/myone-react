@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import Header from './MyoneHeader';
-import Footer from './MyoneFooter'
+import Footer from './MyoneFooter';
 import { Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 
-const MyoneLayout = ({children}) => {
+const MyoneLayout = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
@@ -14,6 +14,6 @@ const MyoneLayout = ({children}) => {
       <Footer />
     </React.Fragment>
   );
-}
+};
 
-export default MyoneLayout
+export default MyoneLayout;

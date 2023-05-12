@@ -14,7 +14,7 @@ export default function emitter(config) {
   };
 
   const off = (key, handler) => {
-    if(bus[key]){
+    if (bus[key]) {
       const index = bus[key].indexOf(handler) ?? -1;
       bus[key]?.splice(index >>> 0, 1);
     }

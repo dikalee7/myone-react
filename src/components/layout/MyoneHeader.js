@@ -1,27 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import Icon from '@mdi/react';
-import {  mdiHomeCircle, mdiWallet } from '@mdi/js';
+import { mdiHomeCircle, mdiWallet } from '@mdi/js';
 import { useNavigate } from 'react-router-dom';
 
-
 const MyoneHeader = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // const goBack = () => {
-    //     // 이전 페이지로 이동
-    //     navigate(-1);
-    // };
+  // const goBack = () => {
+  //     // 이전 페이지로 이동
+  //     navigate(-1);
+  // };
 
-    const goHome = () => {
-        // articles 경로로 이동
-        navigate('/');
-    };
+  const goHome = () => {
+    // articles 경로로 이동
+    navigate('/');
+  };
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='lg'>
         <Container>
           <Navbar.Brand>
             <Icon path={mdiWallet} size={1} />
@@ -37,6 +36,6 @@ const MyoneHeader = () => {
       </Navbar>
     </header>
   );
-}
+};
 
-export default MyoneHeader
+export default MyoneHeader;
