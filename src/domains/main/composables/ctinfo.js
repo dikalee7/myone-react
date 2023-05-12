@@ -10,17 +10,17 @@ const ctinfo = () => {
       {
         name: '가이드',
         emnm: 'goPage',
-        empr: { name: 'guide', params: {} },
+        empr: { name: 'main', params: {} },
       },
       {
         name: '공통',
         emnm: 'goPage',
-        empr: { name: 'myoneGuide', params: {} },
+        empr: { name: 'main', params: {} },
       },
       {
         name: '코딩샘플',
         emnm: 'goPage',
-        empr: { name: 'sampleBasic', params: {} },
+        empr: { name: 'main', params: {} },
       },
     ],
   };
@@ -36,7 +36,7 @@ const ctinfo = () => {
       {
         name: '공공서비스',
         emnm: 'goPage',
-        empr: { name: 'pubService', params: {} },
+        empr: { name: 'main', params: {} },
       },
       {
         name: '혜택',
@@ -80,11 +80,6 @@ const ctinfo = () => {
 };
 
 export default ctinfo;
-
-
-
-
-
 
 //   return { guideCtInfo, contCtInfo1, contCtInfo2, contCtInfo3 };
 // }
