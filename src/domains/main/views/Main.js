@@ -3,6 +3,7 @@ import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
 import { useNavigate } from 'react-router-dom';
+import WithBase from 'components/layout/WithBase';
 
 const Main = () => {
   const { $mo } = useContext(AppContext);
@@ -29,4 +30,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default WithBase(Main, 'Main');
