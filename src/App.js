@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from 'components/layout/MyoneLayout';
 import MainRouter from 'router/MainRouter';
+import BenfRouter from 'router/BenfRouter';
 import useEmitter from 'composables/utils/emitter';
 import useMo from 'composables/utils/mo';
 
@@ -13,7 +14,7 @@ function App() {
   const router = createBrowserRouter([
     {
       element: <Layout />,
-      children: [...MainRouter().router],
+      children: [...MainRouter().router, ...BenfRouter().router],
     },
   ]);
 

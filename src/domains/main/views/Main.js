@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const { $mo } = useContext(AppContext);
   const ctInfo = useCtinfo();
+  const navigate = useNavigate();
 
   const fnGoPage = (p) => {
     if (p && p.name === 'main') {
@@ -14,7 +16,7 @@ const Main = () => {
         message: '아직 제공되지 않습니다.',
       });
     } else {
-      // this.$router.push({ name: p.name, params: p.params });
+      navigate(p.name);
     }
   };
 
