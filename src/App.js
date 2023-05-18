@@ -1,31 +1,23 @@
-
 import { createContext } from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from 'components/layout/MyoneLayout';
 import MainRouter from 'router/MainRouter';
 import useEmitter from 'composables/utils/emitter';
 import useMo from 'composables/utils/mo';
-import ConfirmView from 'components/modal/ConfirmView';
 
 export const AppContext = createContext();
-function App() { 
+function App() {
   const $emitter = useEmitter();
   const $mo = useMo($emitter);
   const router = createBrowserRouter([
     {
       element: <Layout />,
-      children: [
-        ...MainRouter().router,
-      ],
+      children: [...MainRouter().router],
     },
   ]);
 
   return (
     <AppContext.Provider value={{ $emitter, $mo }}>
-      <ConfirmView />
       <RouterProvider router={router} />
     </AppContext.Provider>
   );
