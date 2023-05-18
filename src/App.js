@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from 'components/layout/MyoneLayout';
 import MainRouter from 'router/MainRouter';
@@ -9,6 +9,7 @@ export const AppContext = createContext();
 function App() {
   const $emitter = useEmitter();
   const $mo = useMo($emitter);
+  const $loading = useState(false);
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -17,7 +18,7 @@ function App() {
   ]);
 
   return (
-    <AppContext.Provider value={{ $emitter, $mo }}>
+    <AppContext.Provider value={{ $emitter, $mo, $loading }}>
       <RouterProvider router={router} />
     </AppContext.Provider>
   );

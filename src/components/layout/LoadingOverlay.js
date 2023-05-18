@@ -1,37 +1,19 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
 import Spinner from 'assets/spinner-50.gif';
 import { AppContext } from 'App';
+import 'assets/css/main.css';
 const LoadingOverlay = () => {
-  const Background = styled.div`
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background: #ffffffb7;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `;
-
-  const LoadingText = styled.div`
-    font: 1rem 'Noto Sans KR';
-    text-align: center;
-  `;
   const { $loading } = useContext(AppContext);
-  const [state] = $loading;
+  const [loading] = $loading;
 
   return (
     <>
-      {state ? (
-        <Background>
+      {!loading || (
+        <div className='loadingBox'>
           <img src={Spinner} alt='로딩중' />
-          <LoadingText>Loading...</LoadingText>
-        </Background>
-      ) : null}
+          <div className='loadingText'>Loading...</div>
+        </div>
+      )}
     </>
   );
 };

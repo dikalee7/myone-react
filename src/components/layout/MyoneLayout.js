@@ -4,6 +4,7 @@ import Footer from './MyoneFooter';
 import ConfirmView from 'components/modal/ConfirmView';
 import { Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
+import LoadingOverlay from './LoadingOverlay';
 
 const MyoneLayout = ({ children }) => {
   return (
@@ -13,9 +14,10 @@ const MyoneLayout = ({ children }) => {
         <Container style={{ minHeight: '80vh' }}>
           <Outlet />
         </Container>
+        <ConfirmView />
       </main>
       <Footer />
-      <ConfirmView />
+      <LoadingOverlay />
     </React.Fragment>
   );
 };
