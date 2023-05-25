@@ -39,7 +39,7 @@ const ctinfo = () => {
       {
         name: '공공서비스',
         emnm: 'goPage',
-        empr: { name: 'main', params: {} },
+        empr: { name: '/pubService', params: {} },
         bg: 'success',
       },
       {

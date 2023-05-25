@@ -39,5 +39,5 @@ export default function emitter(config) {
     on(key, handleOnce);
   };
 
-  return { on, off, emit, once };
+  return { on, off, emit, once, bus };
 }

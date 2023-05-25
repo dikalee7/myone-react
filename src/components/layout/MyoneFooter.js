@@ -11,4 +11,4 @@ const MyoneFooter = () => {
   );
 };
 
-export default MyoneFooter;
+export default React.memo(MyoneFooter);

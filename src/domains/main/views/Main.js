@@ -1,11 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import WithBase from 'components/layout/WithBase';
 import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
+import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-const Main = () => {
+const Main = ({ baseInit }) => {
+  useEffect(() => {
+    baseInit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const { $mo } = useContext(AppContext);
   const ctInfo = useCtinfo();
+  const navigate = useNavigate();
 
   const fnGoPage = (p) => {
     if (p && p.name === 'main') {
@@ -14,12 +23,16 @@ const Main = () => {
         message: '아직 제공되지 않습니다.',
       });
     } else {
-      // this.$router.push({ name: p.name, params: p.params });
+      navigate(p.name);
     }
   };
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Myone info</title>
+        <meta name='description' content='This page is main of Myone.info' />
+      </Helmet>
       {ctInfo.map((info, idx) => (
         <MainContent key={idx} ctInfo={info} fnGoPage={fnGoPage} />
       ))}
@@ -27,4 +40,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default React.memo(WithBase(Main, 'Main'));
