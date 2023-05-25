@@ -38,4 +38,4 @@ const MyoneHeader = () => {
   );
 };
 
-export default MyoneHeader;
+export default React.memo(MyoneHeader);

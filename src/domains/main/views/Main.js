@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import WithBase from 'components/layout/WithBase';
 import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
 import { useNavigate } from 'react-router-dom';
-import WithBase from 'components/layout/WithBase';
 
-const Main = () => {
+const Main = ({ baseInit }) => {
+  useEffect(() => {
+    baseInit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const { $mo } = useContext(AppContext);
   const ctInfo = useCtinfo();
   const navigate = useNavigate();
@@ -30,4 +35,4 @@ const Main = () => {
   );
 };
 
-export default WithBase(Main, 'Main');
+export default React.memo(WithBase(Main, 'Main'));

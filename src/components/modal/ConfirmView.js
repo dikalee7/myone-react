@@ -27,7 +27,6 @@ const ConfirmView = () => {
     setShow(false);
   };
   const handleShow = ({ title, message, options }) => {
-    console.log(title);
     setModal({
       title: title,
       message: message,

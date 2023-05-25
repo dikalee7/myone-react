@@ -1,12 +1,23 @@
-import React, { useEffect } from 'react';
-function WithBase(InputComponent, componentName) {
+import React, { useEffect, useContext } from 'react';
+import { AppContext } from 'App';
+function WithBase(InputComponent, _componentName) {
   return function OutputComponent(props) {
+    const { $loading } = useContext(AppContext);
+    const setLoading = $loading[1];
+
     useEffect(() => {
-      console.log(`${componentName} mounted`);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <InputComponent {...props} />;
+    const baseInit = () => {
+      setLoading(true);
+    };
+
+    return <InputComponent {...props} baseInit={baseInit} />;
   };
 }
 

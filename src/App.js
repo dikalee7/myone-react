@@ -1,16 +1,11 @@
-import { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { MainRouter, BenfRouter } from 'router/index';
+
 import Layout from 'components/layout/MyoneLayout';
-import MainRouter from 'router/MainRouter';
-import BenfRouter from 'router/BenfRouter';
-import useEmitter from 'composables/utils/emitter';
-import useMo from 'composables/utils/mo';
 
 export const AppContext = createContext();
 function App() {
-  const $emitter = useEmitter();
-  const $mo = useMo($emitter);
-  const $loading = useState(false);
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -18,11 +13,7 @@ function App() {
     },
   ]);
 
-  return (
-    <AppContext.Provider value={{ $emitter, $mo, $loading }}>
-      <RouterProvider router={router} />
-    </AppContext.Provider>
-  );
+  return <RouterProvider router={router} />;
 }
 
-export default App;
+export default React.memo(App);
