@@ -4,6 +4,7 @@ import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
 import { AppContext } from 'App';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Main = ({ baseInit }) => {
   useEffect(() => {
@@ -28,6 +29,10 @@ const Main = ({ baseInit }) => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Myone info</title>
+        <meta name='description' content='This page is main of Myone.info' />
+      </Helmet>
       {ctInfo.map((info, idx) => (
         <MainContent key={idx} ctInfo={info} fnGoPage={fnGoPage} />
       ))}
