@@ -11,14 +11,16 @@ import ConfirmView from 'components/modal/ConfirmView';
 
 import { useEmitter, useMo } from 'composables/utils/index';
 import { AppContext } from 'App';
+import { baseHeader } from 'router/index';
 
 const MyoneLayout = ({ children }) => {
   const $emitter = useCallback(useEmitter(), []);
   const $mo = useCallback(useMo($emitter), [$emitter]);
   const $loading = useState(false);
+  const $header = useState(baseHeader);
   return (
     <>
-      <AppContext.Provider value={{ $emitter, $mo, $loading }}>
+      <AppContext.Provider value={{ $emitter, $mo, $loading, $header }}>
         <Header />
         <main>
           <Container style={{ minHeight: '80vh' }}>
