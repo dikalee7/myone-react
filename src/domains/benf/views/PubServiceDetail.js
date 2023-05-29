@@ -10,6 +10,7 @@ const PubServiceDetail = ({ getParams, fullscreen, handleClose }) => {
         <Modal.Title>공공서비스 상세</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        추후 퍼블 적용 예정
         {params.data && <pre>{JSON.stringify(params.data[0], null, 2)}</pre>}
       </Modal.Body>
     </Modal>
