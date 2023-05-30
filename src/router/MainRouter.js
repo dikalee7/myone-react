@@ -17,7 +17,7 @@ const MainRouter = () => {
       ),
     },
     {
-      path: '/main',
+      path: '/*',
       element: (
         <Main
           headerInfo={{
