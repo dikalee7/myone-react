@@ -1,8 +1,10 @@
 import React, { useEffect, useContext } from 'react';
-import { AppContext } from 'App';
+import { LoadingContext, HeaderContext } from 'App';
 function WithBase(InputComponent, _componentName) {
   return function OutputComponent(props) {
-    const { $loading, $header } = useContext(AppContext);
+    const { $loading } = useContext(LoadingContext);
+    const { $header } = useContext(HeaderContext);
+
     const setLoading = $loading[1];
     const setHeader = $header[1];
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { AppContext } from 'App';
+import { EmtContext } from 'App';
 
 const ConfirmView = () => {
   const [show, setShow] = useState(false);
@@ -16,7 +16,7 @@ const ConfirmView = () => {
     },
   });
 
-  const { $emitter } = useContext(AppContext);
+  const { $emitter } = useContext(EmtContext);
 
   useEffect(() => {
     $emitter.on('showAlert', handleShow);

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import Spinner from 'assets/spinner-50.gif';
 import 'assets/css/main.css';
-import { AppContext } from 'App';
+import { LoadingContext } from 'App';
 const LoadingOverlay = () => {
-  const { $loading } = useContext(AppContext);
+  const { $loading } = useContext(LoadingContext);
   const [loading] = $loading;
 
   return (

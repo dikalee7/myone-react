@@ -5,10 +5,10 @@ import Icon from '@mdi/react';
 import { mdiHomeCircle, mdiArrowLeftCircle, mdiWallet } from '@mdi/js';
 import { useNavigate } from 'react-router-dom';
 
-import { AppContext } from 'App';
+import { HeaderContext } from 'App';
 
 const MyoneHeader = () => {
-  const { $header } = useContext(AppContext);
+  const { $header } = useContext(HeaderContext);
   const headerInfo = $header[0];
   const navigate = useNavigate();
 

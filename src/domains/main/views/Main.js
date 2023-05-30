@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import WithBase from 'components/layout/WithBase';
 import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
-import { AppContext } from 'App';
+import { EmtContext } from 'App';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -12,7 +12,7 @@ const Main = ({ baseInit }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { $mo } = useContext(AppContext);
+  const { $mo } = useContext(EmtContext);
   const ctInfo = useCtinfo();
   const navigate = useNavigate();
 

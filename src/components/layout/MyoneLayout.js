@@ -10,7 +10,7 @@ import LoadingOverlay from 'components/layout/LoadingOverlay';
 import ConfirmView from 'components/modal/ConfirmView';
 
 import { useEmitter, useMo } from 'composables/utils/index';
-import { AppContext } from 'App';
+import { LoadingContext, EmtContext, HeaderContext } from 'App';
 import { baseHeader } from 'router/index';
 
 const MyoneLayout = ({ children }) => {
@@ -20,17 +20,21 @@ const MyoneLayout = ({ children }) => {
   const $header = useState(baseHeader);
   return (
     <>
-      <AppContext.Provider value={{ $emitter, $mo, $loading, $header }}>
-        <Header />
-        <main>
-          <Container style={{ minHeight: '80vh' }}>
-            <Outlet />
-          </Container>
-        </main>
-        <Footer />
-        <ConfirmView />
-        <LoadingOverlay />
-      </AppContext.Provider>
+      <EmtContext.Provider value={{ $emitter, $mo }}>
+        <LoadingContext.Provider value={{ $loading }}>
+          <HeaderContext.Provider value={{ $header }}>
+            <Header />
+            <main>
+              <Container style={{ minHeight: '80vh' }}>
+                <Outlet />
+              </Container>
+            </main>
+            <Footer />
+            <ConfirmView />
+            <LoadingOverlay />
+          </HeaderContext.Provider>
+        </LoadingContext.Provider>
+      </EmtContext.Provider>
     </>
   );
 };
