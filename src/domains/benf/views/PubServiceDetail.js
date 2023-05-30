@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import WithModal from 'components/modal/WithModal';
 const PubServiceDetail = ({ getParams, fullscreen, handleClose }) => {
   const { params, show } = getParams();
@@ -15,8 +18,22 @@ const PubServiceDetail = ({ getParams, fullscreen, handleClose }) => {
         {params.data && <pre>{JSON.stringify(params.data[0], null, 2)}</pre>}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary'>Close</Button>
-        <Button variant='primary'>Save changes</Button>
+        <Container>
+          <Row>
+            {/* <Col>
+              <div className='d-grid'>
+                <Button variant='secondary'>취소</Button>
+              </div>
+            </Col> */}
+            <Col>
+              <div className='d-grid gap-2'>
+                <Button variant='primary' onClick={handleClose}>
+                  닫기
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </Modal.Footer>
     </Modal>
   );

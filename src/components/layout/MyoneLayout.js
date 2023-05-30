@@ -13,14 +13,19 @@ import { useEmitter, useMo } from 'composables/utils/index';
 import { LoadingContext, CmnContext, HeaderContext } from 'App';
 import { baseHeader } from 'router/index';
 
-const MyoneLayout = ({ children }) => {
-  const $emitter = useCallback(useEmitter(), []);
-  const $mo = useCallback(useMo($emitter), [$emitter]);
+import useApi from 'api/index';
+
+const MyoneLayout = () => {
   const $loading = useState(false);
   const $header = useState(baseHeader);
+
+  const $emitter = useCallback(useEmitter(), []);
+  const $mo = useCallback(useMo($emitter), [$emitter]);
+  const $api = useCallback(useApi($mo, $loading), [$emitter]);
+
   return (
     <>
-      <CmnContext.Provider value={{ $emitter, $mo }}>
+      <CmnContext.Provider value={{ $emitter, $mo, $api }}>
         <LoadingContext.Provider value={{ $loading }}>
           <HeaderContext.Provider value={{ $header }}>
             <Header />

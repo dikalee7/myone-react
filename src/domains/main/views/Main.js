@@ -1,18 +1,16 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import WithBase from 'components/layout/WithBase';
 import MainContent from '../components/MainContent';
 import useCtinfo from '../composables/ctinfo';
-import { CmnContext } from 'App';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const Main = ({ baseInit }) => {
+const Main = ({ baseInit, $mo }) => {
   useEffect(() => {
     baseInit();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { $mo } = useContext(CmnContext);
   const ctInfo = useCtinfo();
   const navigate = useNavigate();
 
