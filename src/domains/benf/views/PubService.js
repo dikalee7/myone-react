@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import WithBase from 'components/layout/WithBase';
 
 import benfCmn from 'domains/benf/composables/benfCmn';
@@ -19,16 +19,17 @@ const PubService = ({ baseInit, $mo, $api }) => {
 
   const [resData, setResData] = useState({});
 
-  const fnGetServiceList = async () => {
+  const fnGetServiceList = useCallback(async () => {
     const response = await pubApiCall(pubApi.list.uri, {
       page: 1,
       perPage: 10,
     });
 
-    setResData(response);
-  };
+    setResData(() => response);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const fnServiceDetail = async (svc) => {
+  const fnServiceDetail = useCallback(async (svc) => {
     const response = await pubApiCall(pubApi.detail.uri, {
       'cond[SVC_ID::EQ]': svc.서비스ID,
     });
@@ -39,7 +40,8 @@ const PubService = ({ baseInit, $mo, $api }) => {
       });
 
     childComponentRef.current.handleOpen({ data: response.data });
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
