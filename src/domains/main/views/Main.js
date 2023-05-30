@@ -5,9 +5,9 @@ import useCtinfo from '../composables/ctinfo';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-const Main = ({ baseInit, $mo }) => {
+const Main = ({ $baseInit, $mo }) => {
   useEffect(() => {
-    baseInit();
+    $baseInit();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

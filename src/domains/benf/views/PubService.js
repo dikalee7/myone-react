@@ -4,11 +4,11 @@ import WithBase from 'components/layout/WithBase';
 import benfCmn from 'domains/benf/composables/benfCmn';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PubServiceDetail from './PubServiceDetail';
-const PubService = ({ baseInit, $mo, $api }) => {
+const PubService = ({ $baseInit, $mo, $api }) => {
   const childComponentRef = useRef();
 
   useEffect(() => {
-    baseInit();
+    $baseInit();
     fnGetServiceList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

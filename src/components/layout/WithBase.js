@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useContext, useMemo } from 'react';
 import { LoadingContext, HeaderContext, CmnContext } from 'App';
 
 function WithBase(InputComponent, _componentName) {
@@ -10,20 +11,15 @@ function WithBase(InputComponent, _componentName) {
     const setLoading = $loading[1];
     const setHeader = $header[1];
 
-    // useEffect(() => {
-    //   console.log(`${_componentName} updated`);
-    // });
-
     useEffect(() => {
       if (!props.headerInfo || !props.headerInfo.continueLoading) {
         setTimeout(() => {
           setLoading(false);
         }, 300);
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const baseInit = () => {
+    const $baseInit = () => {
       //1. 페이지 적용 중 loading 처리
       if (!props.headerInfo || props.headerInfo.isLoading) setLoading(true);
 
@@ -31,15 +27,11 @@ function WithBase(InputComponent, _componentName) {
       if (props.headerInfo) setHeader(props.headerInfo);
     };
 
-    return (
-      <InputComponent
-        {...props}
-        $emitter={$emitter}
-        $mo={$mo}
-        $api={$api}
-        baseInit={baseInit}
-      />
-    );
+    const memoizedDispatches = useMemo(() => {
+      return { $emitter, $mo, $api, $baseInit };
+    }, []);
+
+    return <InputComponent {...props} {...memoizedDispatches} />;
   };
   return React.memo(OutputComponent);
 }
