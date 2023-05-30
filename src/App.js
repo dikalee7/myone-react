@@ -4,7 +4,7 @@ import { MainRouter, BenfRouter } from 'router/index';
 
 import Layout from 'components/layout/MyoneLayout';
 
-const EmtContext = createContext();
+const CmnContext = createContext();
 const LoadingContext = createContext();
 const HeaderContext = createContext();
 function App() {
@@ -17,5 +17,5 @@ function App() {
 
   return <RouterProvider router={router} />;
 }
-export { LoadingContext, EmtContext, HeaderContext };
+export { LoadingContext, CmnContext, HeaderContext };
 export default React.memo(App);

@@ -3,7 +3,7 @@ import WithBase from 'components/layout/WithBase';
 import { pubApiCall } from 'api/index';
 import benfCmn from 'domains/benf/composables/benfCmn';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { EmtContext } from 'App';
+import { CmnContext } from 'App';
 import PubServiceDetail from './PubServiceDetail';
 const PubService = ({ baseInit }) => {
   const childComponentRef = useRef();
@@ -13,7 +13,7 @@ const PubService = ({ baseInit }) => {
     fnGetServiceList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { $mo } = useContext(EmtContext);
+  const { $mo } = useContext(CmnContext);
 
   const { pubApi } = benfCmn();
 

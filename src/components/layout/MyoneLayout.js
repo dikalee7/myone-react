@@ -10,7 +10,7 @@ import LoadingOverlay from 'components/layout/LoadingOverlay';
 import ConfirmView from 'components/modal/ConfirmView';
 
 import { useEmitter, useMo } from 'composables/utils/index';
-import { LoadingContext, EmtContext, HeaderContext } from 'App';
+import { LoadingContext, CmnContext, HeaderContext } from 'App';
 import { baseHeader } from 'router/index';
 
 const MyoneLayout = ({ children }) => {
@@ -20,7 +20,7 @@ const MyoneLayout = ({ children }) => {
   const $header = useState(baseHeader);
   return (
     <>
-      <EmtContext.Provider value={{ $emitter, $mo }}>
+      <CmnContext.Provider value={{ $emitter, $mo }}>
         <LoadingContext.Provider value={{ $loading }}>
           <HeaderContext.Provider value={{ $header }}>
             <Header />
@@ -34,7 +34,7 @@ const MyoneLayout = ({ children }) => {
             <LoadingOverlay />
           </HeaderContext.Provider>
         </LoadingContext.Provider>
-      </EmtContext.Provider>
+      </CmnContext.Provider>
     </>
   );
 };
