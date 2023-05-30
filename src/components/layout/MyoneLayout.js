@@ -10,27 +10,36 @@ import LoadingOverlay from 'components/layout/LoadingOverlay';
 import ConfirmView from 'components/modal/ConfirmView';
 
 import { useEmitter, useMo } from 'composables/utils/index';
-import { AppContext } from 'App';
+import { LoadingContext, CmnContext, HeaderContext } from 'App';
 import { baseHeader } from 'router/index';
 
-const MyoneLayout = ({ children }) => {
-  const $emitter = useCallback(useEmitter(), []);
-  const $mo = useCallback(useMo($emitter), [$emitter]);
+import useApi from 'api/index';
+
+const MyoneLayout = () => {
   const $loading = useState(false);
   const $header = useState(baseHeader);
+
+  const $emitter = useCallback(useEmitter(), []);
+  const $mo = useCallback(useMo($emitter), [$emitter]);
+  const $api = useCallback(useApi($mo, $loading), [$emitter]);
+
   return (
     <>
-      <AppContext.Provider value={{ $emitter, $mo, $loading, $header }}>
-        <Header />
-        <main>
-          <Container style={{ minHeight: '80vh' }}>
-            <Outlet />
-          </Container>
-        </main>
-        <Footer />
-        <ConfirmView />
-        <LoadingOverlay />
-      </AppContext.Provider>
+      <CmnContext.Provider value={{ $emitter, $mo, $api }}>
+        <LoadingContext.Provider value={{ $loading }}>
+          <HeaderContext.Provider value={{ $header }}>
+            <Header />
+            <main>
+              <Container style={{ minHeight: '80vh' }}>
+                <Outlet />
+              </Container>
+            </main>
+            <Footer />
+            <ConfirmView />
+            <LoadingOverlay />
+          </HeaderContext.Provider>
+        </LoadingContext.Provider>
+      </CmnContext.Provider>
     </>
   );
 };

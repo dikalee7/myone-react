@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useContext, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import WithBase from 'components/layout/WithBase';
-import { pubApiCall } from 'api/index';
+
 import benfCmn from 'domains/benf/composables/benfCmn';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { AppContext } from 'App';
 import PubServiceDetail from './PubServiceDetail';
-const PubService = ({ baseInit }) => {
+const PubService = ({ baseInit, $mo, $api }) => {
   const childComponentRef = useRef();
 
   useEffect(() => {
@@ -13,7 +12,8 @@ const PubService = ({ baseInit }) => {
     fnGetServiceList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const { $mo } = useContext(AppContext);
+
+  const { pubApiCall } = $api;
 
   const { pubApi } = benfCmn();
 
@@ -37,12 +37,7 @@ const PubService = ({ baseInit }) => {
         title: '[알림]',
         message: '응답데이트가 존재하지 않습니다.',
       });
-    // const detail = JSON.stringify(response.data, null, 2);
-    // $mo.alert({
-    //   title: '[임시]상세 구현 필요',
-    //   message: `<pre>${detail}</pre>`,
-    // });
-    // alert(JSON.stringify(svc, null, 2));
+
     childComponentRef.current.handleOpen({ data: response.data });
   };
 
@@ -65,7 +60,6 @@ const PubService = ({ baseInit }) => {
             </ListGroup.Item>
           ))}
       </ListGroup>
-      {/* <pre>{JSON.stringify(resData, null, 2)}</pre> */}
       <PubServiceDetail ref={childComponentRef} full={true} />
     </div>
   );

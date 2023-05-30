@@ -1,4 +1,4 @@
-const ctinfo = () => {
+export default function ctinfo() {
   // -- 가이드 컨텐츠 정의 Start --
   const guideCtInfo = {
     title: '개발환경구축',
@@ -84,9 +84,4 @@ const ctinfo = () => {
   };
 
   return [guideCtInfo, contCtInfo1, contCtInfo2, contCtInfo3];
-};
-
-export default ctinfo;
-
-//   return { guideCtInfo, contCtInfo1, contCtInfo2, contCtInfo3 };
-// }
+}
