@@ -22,4 +22,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 export { LoadingContext, CmnContext, HeaderContext };
-export default React.memo(App);
+export default App;
